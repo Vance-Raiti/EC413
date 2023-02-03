@@ -67,7 +67,7 @@ printf("int: %d, long: %d, char: %d ",sizeof(var_int),sizeof(a),sizeof(b));
     printf("\n The sum of schar1 and schar2 is %d",schar1+schar2);
     printf("\n The sum of uchar1 and uchar2 is %d",uchar1+uchar2);
 
-    printf("\n The sum of schar1 and uchar1 is",uchar1+schar1);
+    printf("\n The sum of schar1 and uchar1 is %d",uchar1+schar1);
 
   // 4 -- Booleans
   printf("\n\n PART 4 ----------\n");
@@ -84,39 +84,51 @@ printf("int: %d, long: %d, char: %d ",sizeof(var_int),sizeof(a),sizeof(b));
 
   shift_char = 15;
   i = 1;
-  printf("\nshift_char: %c",shift_char);
-    printf("\nShifted shift_char: %c %c",shift_char>>1, shift_char<<1);
-  printf("\n shift_char << %c = %c", i, shift_char << i);
-    printf("\nShifted 4 left: %c", shift_char << 4);
-    printf("\nShfiter 8 left: %c", shift_char << 8);
+  printf("\nshift_char: %d",shift_char);
+    printf("\nShifted shift_char: %d %d",shift_char>>1, shift_char<<1);
+  printf("\n shift_char << %d = %d", i, shift_char << i);
+    printf("\nShifted 4 left: %d", shift_char << 4);
+    printf("\nShfiter 8 left: %d", shift_char << 8);
 
   // 6 -- pointer basics
   printf("\n\n PART 6 ----------\n");
 
   ip = A;
-  printf("\nstart %d %d %d %d %d %d %d \n",
-	 A[0], *(ip), *(ip+1), *ip++, *ip, *(ip+3), *(ip-1));
-  ip = A;
-  printf("\nmodified %d %d %d %d %d %d %d \n",
-	 A[0+1], *(ip+1), *(ip+1), *((ip++)+1), *(ip+1), *(ip+4), *(ip));
+  printf("\nstart");
+printf(" %d",A[0]);
+printf(" %d",*ip);
+printf(" %d",*(ip+1));
+printf(" %d",*ip++);
+printf(" %d",*ip);
+printf(" %d",*(ip+3));
+printf(" %d",*(ip-1));
+  ip = A+1;
+  printf("\nmodified");
+printf(" %d",A[1]);
+printf(" %d",*ip);
+printf(" %d",*(ip+1));
+printf(" %d",*ip++);
+printf(" %d",*ip);
+printf(" %d",*(ip+3));
+printf(" %d",*(ip-1));
   int fed = 1;
   printf("\nsize of int pointer: %d",sizeof(&fed));
   printf("\naddress of a: %x",a);
 
   // 7 -- programming with pointers
   printf("\n\n PART 7 ----------\n");
-  for (int i = 0; i<10; i++){
+  for (i = 0; i<10; i++){
     B[i] = A[9-i];
   }
-  for (int i = 0; i<10; i++){
+  for (i = 0; i<10; i++){
     *(C+i)=*(A+9-i);
   }
   printf("\n");
-  for (int i = 0; i<10; i++){
+  for (i = 0; i<10; i++){
     printf("%d ",B[i]);
   }
   printf("\n");
-  for(int i = 0; i < 10; i++){
+  for(i = 0; i < 10; i++){
     printf("%d ",C[i]);
   }
 
@@ -125,24 +137,21 @@ printf("int: %d, long: %d, char: %d ",sizeof(var_int),sizeof(a),sizeof(b));
 
   printf("\n %s \n", AString);
   printf("\nAscii values: ");
-  for (int i = 0; AString[i]!='\0'; i++){
+  for (i = 0; AString[i]!='\0'; i++){
     printf("%c ",AString[i]);
   }
   printf("\nLast byte: %d ",AString[i]);
   printf("\nIncremented Ascii Values: ");
-  for (int i = 0; AString[i]!='\0'; i++){
+  for (i = 0; AString[i]!='\0'; i++){
     printf("%c ",AString[i]+1);
   }
-  printf("\nIncremented by 60 Ascii Values: ");
-  for (int i = 0; AString[i]!='\0'; i++){
-    printf("%c ",AString[i]+60);
-  }
+  AString[3]+=60;
+printf("\n %s \n ",AString);
   
 
 
   // 9 -- address calculation
-  printf("\n\n PART 9 ----------\n");
-  
+  printf("\n\n PART 9 ----------\n"); 
   for (k = 0; k < 10; k++) {
     B[k] = A[k];         // direct reference to array element
     printf("%x ",(B+k));
@@ -151,7 +160,7 @@ printf("int: %d, long: %d, char: %d ",sizeof(var_int),sizeof(a),sizeof(b));
   ip2 = B;
   printf("\n");
   for (k = 0; k < 10; k++) {
-    printf("%x ",ip);
+    printf("%x ",ip2);
     *ip2++ = *ip++;     // indirect reference to array element
     
   }
